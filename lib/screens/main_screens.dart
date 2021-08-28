@@ -1,3 +1,8 @@
+import 'package:carrot_market_ui/screens/chatting/chatting_screen.dart';
+import 'package:carrot_market_ui/screens/home/home_screen.dart';
+import 'package:carrot_market_ui/screens/my_carrot/my_carrot_screen.dart';
+import 'package:carrot_market_ui/screens/near_me/near_me_screen.dart';
+import 'package:carrot_market_ui/screens/neighborhoodnear_life/neighborhoodnear_life_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -16,24 +21,11 @@ class _MainScreensState extends State<MainScreens> {
       body: IndexedStack(
         index: _selectedIndex,
         children: [
-          Container(
-            color: Colors.orange[100],
-            child: Center(
-              child: Text(
-                'IndexedStack 1',
-                style: TextStyle(fontSize: 20, color: Colors.black),
-              ),
-            ),
-          ),
-          Container(
-            color: Colors.redAccent[100],
-            child: Center(
-              child: Text(
-                'IndexedStack 2',
-                style: TextStyle(fontSize: 20, color: Colors.black),
-              ),
-            ),
-          )
+          HomeScreen(),
+          NeighborhoodLifeScreen(),
+          NearMeScreen(),
+          ChattingScreen(),
+          MyCarrotScreen(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -43,8 +35,20 @@ class _MainScreensState extends State<MainScreens> {
             label: '홈',
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.chat_bubble),
+            icon: Icon(CupertinoIcons.square_on_square),
+            label: '동네생활',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(CupertinoIcons.placemark),
+            label: '내 근처',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(CupertinoIcons.chat_bubble_2),
             label: '채팅',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(CupertinoIcons.person),
+            label: '나의 당근',
           )
         ],
         onTap: (index) {
