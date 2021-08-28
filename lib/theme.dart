@@ -32,5 +32,6 @@ ThemeData theme() {
     scaffoldBackgroundColor: Colors.white,
     textTheme: textTheme(),
     appBarTheme: appTheme(),
+    primaryColor: Colors.orange,
   );
 }
