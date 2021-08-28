@@ -1,4 +1,5 @@
-import 'package:carrot_market_ui/theme.dart';
+import 'package:carrot_market_ui/models/product.dart';
+import 'package:carrot_market_ui/screens/components/product_item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -34,7 +35,18 @@ class HomeScreen extends StatelessWidget {
             ),
             preferredSize: Size.fromHeight(0.5)),
       ),
-      body: Container(),
+      body: ListView.separated(
+        separatorBuilder: (context, index) => const Divider(
+          height: 0,
+          indent: 16,
+          endIndent: 16,
+          color: Colors.grey,
+        ),
+        itemBuilder: (context, index) {
+          return ProductItem(product: productList[index]);
+        },
+        itemCount: productList.length,
+      ),
     );
   }
 }
