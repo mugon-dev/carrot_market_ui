@@ -51,6 +51,10 @@ class _MainScreensState extends State<MainScreens> {
             label: '나의 당근',
           )
         ],
+        backgroundColor: Colors.white,
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: Colors.black,
+        unselectedItemColor: Colors.black54,
         onTap: (index) {
           setState(() {
             _selectedIndex = index;
