@@ -1,3 +1,4 @@
+import 'package:carrot_market_ui/screens/components/my_carrot_header.dart';
 import 'package:flutter/material.dart';
 
 class MyCarrotScreen extends StatelessWidget {
@@ -22,7 +23,9 @@ class MyCarrotScreen extends StatelessWidget {
         ),
       ),
       body: ListView(
-        children: [],
+        children: [
+          MyCarrotHeader(),
+        ],
       ),
     );
   }
