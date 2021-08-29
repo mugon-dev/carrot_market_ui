@@ -1,4 +1,6 @@
+import 'package:carrot_market_ui/models/neighborhood_life.dart';
 import 'package:carrot_market_ui/screens/components/appbar_prefereed_size.dart';
+import 'package:carrot_market_ui/screens/components/life_body.dart';
 import 'package:carrot_market_ui/screens/components/life_header.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -24,6 +26,15 @@ class NeighborhoodLifeScreen extends StatelessWidget {
       body: ListView(
         children: [
           LifeHeader(),
+          ...List.generate(
+            neighborhoodLifeList.length,
+            (index) => Padding(
+              padding: const EdgeInsets.only(bottom: 8.0),
+              child: LifeBody(
+                neighborhoodLife: neighborhoodLifeList[index],
+              ),
+            ),
+          ),
         ],
       ),
     );
