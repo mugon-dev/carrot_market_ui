@@ -1,5 +1,8 @@
 import 'package:carrot_market_ui/models/neighborhood_life.dart';
+import 'package:carrot_market_ui/screens/components/image_container.dart';
+import 'package:carrot_market_ui/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LifeBody extends StatelessWidget {
   final NeighborhoodLife neighborhoodLife;
@@ -28,36 +31,114 @@ class LifeBody extends StatelessWidget {
 
   Widget _buildTail(int commentCount) {
     return Padding(
-      padding: const EdgeInsets.all(16),
-      child: Container(color: Colors.lime[100], height: 50),
-    );
+        padding: const EdgeInsets.all(16),
+        child: Row(
+          children: [
+            Icon(
+              FontAwesomeIcons.smile,
+              color: Colors.grey,
+              size: 22,
+            ),
+            SizedBox(width: 8),
+            Text(
+              '공감하기',
+              style: TextStyle(fontSize: 16, color: Colors.black),
+            ),
+            SizedBox(width: 22),
+            Icon(
+              FontAwesomeIcons.commentAlt,
+              color: Colors.grey,
+              size: 22,
+            ),
+            SizedBox(width: 8),
+            Text(
+              '${"댓글쓰기"} $commentCount',
+              style: TextStyle(fontSize: 16, color: Colors.black),
+            ),
+          ],
+        ));
   }
 
   Widget _buildImage() {
-    return Padding(
-      padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
-      child: Container(color: Colors.black, height: 150),
+    return Visibility(
+      visible: neighborhoodLife.contentImgUri != '',
+      child: Padding(
+        padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
+        child: Image.network(
+          neighborhoodLife.contentImgUri,
+          height: 200,
+          width: double.infinity,
+          fit: BoxFit.cover,
+        ),
+      ),
     );
   }
 
   Widget _buildWriting() {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-      child: Container(color: Colors.blue[100], height: 50),
-    );
+        padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+        child: Align(
+          alignment: Alignment.centerLeft,
+          child: Text(
+            neighborhoodLife.content,
+            style: textTheme().bodyText2,
+            maxLines: 3,
+            overflow: TextOverflow.ellipsis,
+            textAlign: TextAlign.start,
+          ),
+        ));
   }
 
   Widget _buildWriter() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Container(color: Colors.red[100], height: 30),
-    );
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: Row(
+          children: [
+            ImageContainer(
+              borderRadius: 15,
+              imageUrl: neighborhoodLife.profileImgUri,
+              width: 30,
+              height: 30,
+            ),
+            Text.rich(
+              TextSpan(
+                children: [
+                  TextSpan(
+                    text: '${neighborhoodLife.userName}',
+                    style: textTheme().bodyText1,
+                  ),
+                  // theme.dart에서 body text2 속성값을 재지정
+                  TextSpan(text: '${neighborhoodLife.location}'),
+                  TextSpan(text: '${neighborhoodLife.authCount}회'),
+                ],
+              ),
+            ),
+          ],
+        ));
   }
 
   Widget _buildTop() {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-      child: Container(color: Colors.orange[100], height: 30),
-    );
+        padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              padding: EdgeInsets.all(4),
+              decoration: BoxDecoration(
+                // 박스 모양을 직사각형
+                shape: BoxShape.rectangle,
+                borderRadius: BorderRadius.all(Radius.circular(4)),
+                color: Color.fromRGBO(247, 247, 247, 1),
+              ),
+              child:
+                  Text(neighborhoodLife.category, style: textTheme().bodyText2),
+            ),
+            Text(
+              neighborhoodLife.date,
+              style: textTheme().bodyText2,
+            )
+          ],
+        ));
   }
 }
