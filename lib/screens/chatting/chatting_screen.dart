@@ -1,6 +1,6 @@
 import 'package:carrot_market_ui/models/chat_message.dart';
 import 'package:carrot_market_ui/screens/components/appbar_prefereed_size.dart';
-import 'package:carrot_market_ui/screens/components/chat_container.dart';
+import 'package:carrot_market_ui/screens/chatting/components/chat_container.dart';
 import 'package:flutter/material.dart';
 
 class ChattingScreen extends StatelessWidget {
