@@ -1,7 +1,7 @@
 import 'package:carrot_market_ui/models/neighborhood_life.dart';
 import 'package:carrot_market_ui/screens/components/appbar_prefereed_size.dart';
-import 'package:carrot_market_ui/screens/near_me/components/life_body.dart';
-import 'package:carrot_market_ui/screens/near_me/components/life_header.dart';
+import 'package:carrot_market_ui/screens/neighborhoodnear_life/components/life_body.dart';
+import 'package:carrot_market_ui/screens/neighborhoodnear_life/components/life_header.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
