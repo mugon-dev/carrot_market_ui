@@ -23,7 +23,6 @@ AppBarTheme appTheme() {
     color: Colors.white,
     elevation: 0.0,
     titleTextStyle: textTheme().headline6,
-    toolbarTextStyle: textTheme().headline6,
     iconTheme: IconThemeData(color: Colors.black),
   );
 }
