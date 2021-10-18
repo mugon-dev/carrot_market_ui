@@ -11,13 +11,13 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Row(
-          children: [
-            const Text("좌동"),
-            const SizedBox(width: 4.0),
-            const Icon(
+          children: const [
+             Text("좌동", style: TextStyle(color: Colors.black),),
+             SizedBox(width: 4.0),
+             Icon(
               CupertinoIcons.chevron_down,
               size: 15.0,
-            )
+            ),
           ],
         ),
         actions: [

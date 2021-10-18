@@ -9,6 +9,11 @@ TextTheme textTheme() {
     bodyText1: GoogleFonts.openSans(fontSize: 16.0, color: Colors.black),
     bodyText2: GoogleFonts.openSans(fontSize: 14.0, color: Colors.grey),
     subtitle1: GoogleFonts.openSans(fontSize: 15.0, color: Colors.black),
+      headline6: GoogleFonts.nanumGothic(
+        fontSize: 16,
+        fontWeight: FontWeight.bold,
+        color: Colors.black
+      ),
   );
 }
 
@@ -17,13 +22,9 @@ AppBarTheme appTheme() {
     centerTitle: false,
     color: Colors.white,
     elevation: 0.0,
-    textTheme: TextTheme(
-      headline6: GoogleFonts.nanumGothic(
-        fontSize: 16,
-        fontWeight: FontWeight.bold,
-        color: Colors.black,
-      ),
-    ),
+    titleTextStyle: textTheme().headline6,
+    toolbarTextStyle: textTheme().headline6,
+    iconTheme: IconThemeData(color: Colors.black),
   );
 }
 
